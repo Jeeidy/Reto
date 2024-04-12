@@ -17,17 +17,17 @@ let mostrarAciertos = document.getElementById('aciertos');
 let mostrarTiempo = document.getElementById('t-restante'); 
 
 //Generación de números aleatorios
-let numeros =[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]
+let numeros =[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 numeros = numeros.sort(()=>{return Math.random()-0.5});
-console.log(numeors);
+console.log(numeros);
 
 //Funciones
 function contarTiempo(){
     tiempoRegresivoId = setInterval(()=>{
-        timer --;
+        timer--;
         mostrarTiempo.innerHTML = `Tiempo: ${timer} segundos`;
         if(timer == 0){
-            clearInterval(tempoRegresicoId);
+            clearInterval(tiempoRegresivoId);
             bloquearTarjetas();
         }
     },1000);
@@ -52,15 +52,15 @@ function destapar(id) {
     tarjetasDestapadas++;
     console.log(tarjetasDestapadas);
 
-    if(tarjetasDestapadas ==1){
+    if(tarjetasDestapadas == 1){
         //Mostrar primero número
         tarjeta1 = document.getElementById(id);
-        primerResultado = numeros[id]
+        primerResultado = numeros[id];
         tarjeta1.innerHTML = primerResultado;
 
         //Deshabilitar primer botón
         tarjeta1.disabled = true;
-    }else if (tarjetasDestapadas ==2){
+    }else if (tarjetasDestapadas == 2){
         //Mostrar segundo numero
         tarjeta2 = document.getElementById(id);
         segundoResultado = numeros[id];
@@ -81,11 +81,11 @@ function destapar(id) {
             aciertos++;
             mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
 
-            if(aciertos ==8){
+            if(aciertos == 8){
                 clearInterval(tiempoRegresivoId);
-                mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
-                mostrarTiempo.innerHTML = `Fantástico! Sólo demoraste ${timerInicial - timer} segundos`
-                mostrarMovimientos.innerHTML = `Movimientos: ${moviminetos}`;
+                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😱`
+                mostrarTiempo.innerHTML = `Fantástico! 👍 Sólo demoraste ${timerInicial + timer} segundos`
+                mostrarMovimientos.innerHTML = `Movimientos: ${moviminetos}🤌`
             }
         }else{
             //Mostrat momentaneamente valores y volver a tapar
